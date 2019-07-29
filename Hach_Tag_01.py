@@ -2,6 +2,9 @@ import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 
+# 문자열 저장할 리스트
+List_A = []
+s_line = []
 
 #UI파일 연결
 #단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
@@ -9,35 +12,38 @@ form_class = uic.loadUiType("일단gui.ui")[0]
 
 #화면을 띄우는데 사용되는 Class 선언
 class WindowClass(QMainWindow, form_class) :
+
     def __init__(self) :
         super().__init__()
         self.setupUi(self)
 
-        #메모장 파일 불러오기
+        #문자열 리스트화
+        global s_line
+        global List_A
         f = open("hihi.txt", 'r')
+
         while True:
             line = f.readline()
+            s_line.append(line)
+            if '#' in line:
+                List_A.append(s_line)
+                s_line = []
             if not line: break
-            #메모장 문장을 가져오기
-            self.TextBox.append(line)
-
         f.close()
 
+        #리스트에 표시
+
+
+
+
         self.PlusBtn.clicked.connect(self.button1Function)
-        self.TextBox.textChanged.connect(self.TextSave)
+
         
 
     #btn_1이 눌리면 작동할 함수
     def button1Function(self):
-        print("btn_1 Clicked")
-
-
-    def TextSave(self):
-        print("text save")
         text = self.TextBox.toPlainText()
-        print(text)
-
-        f = open("hihi.txt", 'w')
+        f = open("hihi.txt", 'a')
         f.write(text)
         f.close()
 
