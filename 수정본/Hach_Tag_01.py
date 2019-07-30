@@ -49,10 +49,10 @@ class WindowClass(QMainWindow, form_class) :
             L_Text = ""
         self.listView.itemClicked.connect(self.Texting)   
 
-        """
-        while(self.finding.text() != ''):
-            self.finding.textChanged.connect(self.Search)
-            """
+        #서치 기능
+
+        self.finding.textChanged.connect(self.Search)
+
 
 
 
@@ -90,13 +90,25 @@ class WindowClass(QMainWindow, form_class) :
 
 
 
-
+    """
     ##함수 사용법 나중에 키워드는 변수 처리해서 따로 입력 받으면 됨
     ans = sc.search("이거")
     print(ans)
     """
     def Search(self):
-    """
+        L_Text = ""
+        ans = sc.search(self.finding.text())
+        self.listView.clear()
+        for i in ans:
+            for k in i:
+                L_Text= L_Text + k
+            self.listView.addItem(L_Text)
+            L_Text = ""
+        self.listView.itemClicked.connect(self.Texting)
+        print(ans)
+
+
+
 
 
 
