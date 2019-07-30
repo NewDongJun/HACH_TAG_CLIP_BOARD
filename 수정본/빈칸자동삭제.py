@@ -1,13 +1,11 @@
 import sys
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
-import search as sc
 
 # 문자열 저장할 리스트
 List_A = []
 s_line = []
 
-# 입력받은 문자를 리스트로 읽어들이는 함수
 def M_List():
     global s_line
     global List_A
@@ -24,6 +22,32 @@ def M_List():
         if not line: break
     f.close()
 
+
+def delete_blank_tag(): #빈칸을 지우는 함수
+
+    f = open("data.txt", 'r')
+    list_data = f.readlines() # data 전체를 잠시 받는 리스트
+    f.close()
+
+    i = 0
+    token = 0
+    while(i < len(list_data)):
+        if '#' in list_data[i]:
+            token += 1
+        else:
+            token = 0
+
+        if token is 2:
+            del list_data[i]
+            i -= 1
+            token = 1
+        i += 1
+
+    f = open("data.txt", 'w')
+    for i in range(0, len(list_data)):
+        f.write(list_data[i])
+    f.close()
+
 #UI파일 연결
 #단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
 form_class = uic.loadUiType("일단gui.ui")[0]
@@ -35,24 +59,21 @@ class WindowClass(QMainWindow, form_class) :
         super().__init__()
         self.setupUi(self)
 
+        delete_blank_tag()
+
 
         self.PlusBtn.clicked.connect(self.button1Function)
 
         #리스트 위젯
         M_List()
-        L_Text = ""
-        self.listView.clear()
         for i in List_A:
-            for k in i:
-                L_Text= L_Text + k
-            self.listView.addItem(L_Text)
-            L_Text = ""
-        self.listView.itemClicked.connect(self.Texting)   
+            self.listView.addItem(i[-1])
+        self.listView.itemClicked.connect(self.Texting)
 
-        #서치 기능
-        self.finding.textChanged.connect(self.Search)
-
-
+        """
+        while(self.finding.text() != ''):
+            self.finding.textChanged.connect(self.Search)
+            """
 
 
 
@@ -69,16 +90,10 @@ class WindowClass(QMainWindow, form_class) :
 
         #리스트 재생성
         M_List()
-        L_Text = ""
         self.listView.clear()
         for i in List_A:
-            for k in i:
-                L_Text= L_Text + k
-            self.listView.addItem(L_Text)
-            L_Text = ""
+            self.listView.addItem(i[-1])
         self.listView.itemClicked.connect(self.Texting)
-
-
 
     def Texting(self):
         self.OutText.clear()
@@ -86,37 +101,6 @@ class WindowClass(QMainWindow, form_class) :
             if self.listView.currentRow() == List_A.index(i):
                 for j in i:
                     self.OutText.append(j)
-
-
-
-    """
-    ##함수 사용법 나중에 키워드는 변수 처리해서 따로 입력 받으면 됨
-    ans = sc.search("이거")
-    print(ans)
-    """
-    def Search(self):
-        L_Text = ""
-        ans = sc.search(self.finding.text())
-        self.listView.clear()
-        for i in ans:
-            for k in i:
-                L_Text= L_Text + k
-            self.listView.addItem(L_Text)
-            L_Text = ""
-        self.listView.itemClicked.connect(self.SC_Texting)
-        #print(ans)
-
-    def SC_Texting(self):
-        ans = sc.search(self.finding.text())
-        self.OutText.clear()
-        for i in ans:
-            if self.listView.currentRow() == ans.index(i):
-                for j in i:
-                    self.OutText.append(j)
-
-
-
-
 
 
 if __name__ == "__main__" :
