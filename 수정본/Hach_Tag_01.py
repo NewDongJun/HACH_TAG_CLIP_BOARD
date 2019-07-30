@@ -6,7 +6,7 @@ from PyQt5 import uic
 List_A = []
 s_line = []
 
-# 문자열 리스트화 함수
+# 입력받은 문자를 리스트로 읽어들이는 함수
 def M_List():
     global s_line
     global List_A
@@ -53,6 +53,7 @@ class WindowClass(QMainWindow, form_class) :
     #btn_1이 눌리면 작동할 함수
     #버튼을 누르면 글이 추가
     def button1Function(self):
+        #txt저장소에 데이터를 저장하는 기능
         text = self.TextBox.toPlainText()
         f = open("hihi.txt", 'a')
         f.write(text)
