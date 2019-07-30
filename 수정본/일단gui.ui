@@ -87,22 +87,22 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="OutText">
-   <property name="geometry">
-    <rect>
-     <x>265</x>
-     <y>330</y>
-     <width>301</width>
-     <height>291</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QListWidget" name="listView">
    <property name="geometry">
     <rect>
      <x>40</x>
      <y>330</y>
      <width>211</width>
+     <height>291</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="OutText">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>330</y>
+     <width>301</width>
      <height>291</height>
     </rect>
    </property>

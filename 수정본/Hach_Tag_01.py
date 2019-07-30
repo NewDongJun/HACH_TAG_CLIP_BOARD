@@ -39,9 +39,17 @@ class WindowClass(QMainWindow, form_class) :
 
         #리스트 위젯
         M_List()
+        L_Text = ""
+        self.listView.clear()
         for i in List_A:
-            self.listView.addItem(i[-1])
+            for k in i:
+                L_Text= L_Text + k
+            self.listView.addItem(L_Text)
+            L_Text = ""
         self.listView.itemClicked.connect(self.Texting)
+
+        for i in List_A:
+            print(i)
 
         """
         while(self.finding.text() != ''):
@@ -63,9 +71,13 @@ class WindowClass(QMainWindow, form_class) :
 
         #리스트 재생성
         M_List()
+        L_Text = ""
         self.listView.clear()
         for i in List_A:
-            self.listView.addItem(i[-1])
+            for k in i:
+                L_Text= L_Text + k
+            self.listView.addItem(L_Text)
+            L_Text = ""
         self.listView.itemClicked.connect(self.Texting)
 
 
