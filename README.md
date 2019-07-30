@@ -1,5 +1,5 @@
-# HASH_TAG_CLIP_BOARD
-해쉬 택 클륍볼d
+# HA치_TAG_CLIP_BOARD
+해치태그 클귑 보r드
 
 
 ## Prerequisites 
