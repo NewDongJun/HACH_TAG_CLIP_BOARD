@@ -8,6 +8,8 @@
 
 ## Usage
 
+## Screen Shot
+
 ## Author
 - [신동준](https://github.com/NewDongJun) / [@NewDongJun](https://newdongjun.github.io)
 - [정석훈](https://github.com/JungSeokHoon)
