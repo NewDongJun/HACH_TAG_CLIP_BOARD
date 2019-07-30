@@ -24,6 +24,31 @@ def M_List():
         if not line: break
     f.close()
 
+def delete_blank_tag(): #빈칸을 지우는 함수
+
+    f = open("data.txt", 'r')
+    list_data = f.readlines() # data 전체를 잠시 받는 리스트
+    f.close()
+
+    i = 0
+    token = 0
+    while(i < len(list_data)):
+        if '#' in list_data[i]:
+            token += 1
+        else:
+            token = 0
+
+        if token is 2:
+            del list_data[i]
+            i -= 1
+            token = 1
+        i += 1
+
+    f = open("data.txt", 'w')
+    for i in range(0, len(list_data)):
+        f.write(list_data[i])
+    f.close()
+
 #UI파일 연결
 #단, UI파일은 Python 코드 파일과 같은 디렉토리에 위치해야한다.
 form_class = uic.loadUiType("일단gui.ui")[0]
@@ -35,7 +60,7 @@ class WindowClass(QMainWindow, form_class) :
         super().__init__()
         self.setupUi(self)
 
-
+        delete_blank_tag()
         self.PlusBtn.clicked.connect(self.button1Function)
 
         #리스트 위젯
