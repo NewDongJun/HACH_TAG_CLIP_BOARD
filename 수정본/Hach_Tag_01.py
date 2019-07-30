@@ -104,7 +104,7 @@ class WindowClass(QMainWindow, form_class) :
             self.listView.addItem(L_Text)
             L_Text = ""
         self.listView.itemClicked.connect(self.SC_Texting)
-        print(ans)
+        #print(ans)
 
     def SC_Texting(self):
         ans = sc.search(self.finding.text())
