@@ -56,6 +56,7 @@ class WindowClass(QMainWindow, form_class) :
         text = self.TextBox.toPlainText()
         f = open("hihi.txt", 'a')
         f.write(text)
+        f.write("\n")
         f.close()
         self.TextBox.clear()
 
