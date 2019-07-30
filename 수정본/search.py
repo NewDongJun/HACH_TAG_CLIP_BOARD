@@ -12,7 +12,7 @@ def search(keyword):
             s_line = []
         if not line: break
     f.close()
-    print(List_A)
+    #print(List_A)
 
     result = []
     #전체 저장된 데이터의 개수만큼 for문
@@ -25,7 +25,7 @@ def search(keyword):
                 result.append(i)
 
 
-    print(result)
+    return result
 
 #쓰는 방법
 #함수안에 키워드를 전달해 주면 됨
