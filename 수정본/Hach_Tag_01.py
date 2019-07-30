@@ -48,6 +48,9 @@ class WindowClass(QMainWindow, form_class) :
             self.finding.textChanged.connect(self.Search)
             """
 
+        for i in List_A:
+            print(i)
+
 
 
     #btn_1이 눌리면 작동할 함수
