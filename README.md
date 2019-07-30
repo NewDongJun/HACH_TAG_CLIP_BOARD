@@ -1,5 +1,5 @@
 # HA치_TAG_CLIP_BOARD
-해치태그 클귑 보r드
+해CH태그 클귑 보r드
 
 
 ## Prerequisites 
