@@ -50,7 +50,6 @@ class WindowClass(QMainWindow, form_class) :
         self.listView.itemClicked.connect(self.Texting)   
 
         #서치 기능
-
         self.finding.textChanged.connect(self.Search)
 
 
@@ -104,8 +103,16 @@ class WindowClass(QMainWindow, form_class) :
                 L_Text= L_Text + k
             self.listView.addItem(L_Text)
             L_Text = ""
-        self.listView.itemClicked.connect(self.Texting)
+        self.listView.itemClicked.connect(self.SC_Texting)
         print(ans)
+
+    def SC_Texting(self):
+        ans = sc.search(self.finding.text())
+        self.OutText.clear()
+        for i in ans:
+            if self.listView.currentRow() == ans.index(i):
+                for j in i:
+                    self.OutText.append(j)
 
 
 
