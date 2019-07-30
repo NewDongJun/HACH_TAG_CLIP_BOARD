@@ -12,7 +12,7 @@ def M_List():
     global List_A
     s_line = []
     List_A = []
-    f = open("hihi.txt", 'r')
+    f = open("data.txt", 'r')
 
     while True:
         line = f.readline()
@@ -55,7 +55,7 @@ class WindowClass(QMainWindow, form_class) :
     def button1Function(self):
         #txt저장소에 데이터를 저장하는 기능
         text = self.TextBox.toPlainText()
-        f = open("hihi.txt", 'a')
+        f = open("data.txt", 'a')
         f.write(text)
         f.write("\n")
         f.close()
