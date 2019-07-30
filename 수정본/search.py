@@ -27,5 +27,7 @@ def search(keyword):
 
     print(result)
 
-keyword = "천재"
-search(keyword)
+#쓰는 방법
+#함수안에 키워드를 전달해 주면 됨
+#keyword = "천재"
+#search(keyword)
