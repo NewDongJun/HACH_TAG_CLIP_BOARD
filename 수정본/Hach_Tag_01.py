@@ -6,6 +6,8 @@ import search as sc
 # 문자열 저장할 리스트
 List_A = []
 s_line = []
+WW_List = []
+WW_Line = ''
 
 # 입력받은 문자를 리스트로 읽어들이는 함수
 def M_List():
@@ -77,6 +79,9 @@ class WindowClass(QMainWindow, form_class) :
         #서치 기능
         self.finding.textChanged.connect(self.Search)
 
+        #편집기능
+        self.listView.itemClicked.connect(self.I_Edit)
+
 
 
 
@@ -138,6 +143,54 @@ class WindowClass(QMainWindow, form_class) :
             if self.listView.currentRow() == ans.index(i):
                 for j in i:
                     self.OutText.append(j)
+
+    def I_Edit(self):
+        self.OutText.textChanged.connect(self.O_Edit)
+
+    def O_Edit(self):
+        global WW_List_A
+        global WW_Line
+        global List_A
+        W_text = self.OutText.toPlainText()
+        W_Line = W_text.split('#')
+        #print(W_Line)
+        for i in W_Line:
+            if W_Line[0] == i:
+                continue
+            W_Line[W_Line.index(i)] = '#' + i
+
+        if len(W_Line) > 2:
+            for i in W_Line:
+                if W_Line[0] == i or W_Line[1] == i:
+                    continue
+                W_Line[1] = W_Line[1] + i
+                del(W_Line[W_Line.index(i)])
+"""
+        #print(W_Line)
+        List_A[self.listView.currentRow()] = W_Line
+        #print(List_A)
+
+        WW_List_A = List_A
+        #print(WW_List_A)
+        WW_Line =''
+        f = open("data.txt", 'w')
+        for i in WW_List_A:
+            for k in i:
+                WW_Line += k
+        f.write(WW_Line)
+        f.write("\n")
+        f.close()
+        M_List()
+"""
+
+
+
+
+
+
+
+
+
 
 
 
