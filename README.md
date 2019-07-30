@@ -14,7 +14,7 @@
 - [신동준](https://github.com/NewDongJun) / [@NewDongJun](https://newdongjun.github.io)
 - [정석훈](https://github.com/JungSeokHoon)
 - [김윤찬](https://github.com/cmne3602)
-
+<img src="/assets/IMG_12.JPG">
 
 ## 사용된 이미지 출처
 - [icons8](https://icons8.com/icons)
