@@ -4,7 +4,7 @@
 ## Prerequisites 
 
 - [Python3](https://www.python.org/downloads/)
-- [PyQt5](https://pypi.org/project/PyQt5/https://www.tensorflow.org/)
+- [PyQt5](https://pypi.org/project/PyQt5/)
 
 ## Usage
 
