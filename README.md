@@ -6,8 +6,7 @@
 
 - [Python3](https://www.python.org/downloads/)
 - [PyQt5](https://pypi.org/project/PyQt5/)
-
-
+- [PyInstaller](https://pypi.org/project/PyInstaller/)
 ## Usage
 ### 저장
 - 맨위의 저장 버튼 밑의 창에 내용을 입력하고 저장 맨위의 저장 버튼을 누른다.
